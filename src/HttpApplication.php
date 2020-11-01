@@ -10,7 +10,7 @@ use Narrowspark\HttpEmitter\SapiEmitter;
  * Class HttpApplication
  * @package Iset\App
  */
-abstract class HttpApplication extends Decorator
+class HttpApplication extends Decorator
 {
   /**
    * @param Manager $diManager

@@ -27,7 +27,6 @@ class HttpApplicationFactory extends AbstractFactory
      * @var \Iset\Di\Manager
      */
     $diManager = $params->get('application/di/manager');
-    $appClass = $params->get('application/class');
 
     if (!$diManager) {
       $diManager = $this->create(Creator::class, $params ? $params->toArray() : []);
@@ -37,18 +36,18 @@ class HttpApplicationFactory extends AbstractFactory
       ->createInstance(EventManager::class, $params, 'application/event/manager')
       ->init($params);
 
-    if (empty($appClass)) {
+    if (empty($class)) {
       throw new ParameterIsEmpty;
     }
 
-    if (!class_exists($appClass)) {
+    if (!class_exists($class)) {
       throw new ClassNotFound;
     }
 
     /**
      * @var $appInstance \Iset\App\HttpApplication
      */
-    $appInstance = $this->create($appClass);
+    $appInstance = $this->create($class);
 
     $routeSettings = $params->get('routes');
 
