@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Parser\Handler;
+namespace Iset\App;
 
 use Iset\App\HttpHandler;
 use Psr\Http\Message\ResponseInterface;
