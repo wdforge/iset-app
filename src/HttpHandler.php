@@ -3,8 +3,9 @@
 
 namespace Iset\App;
 
-use Iset\App\HttpHandler;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\RequestInterface;
+use Zend\Diactoros\ServerRequest;
 
 class HttpHandler
 {
@@ -24,11 +25,11 @@ class HttpHandler
 
   /**
    *
-   *
+   * @param ServerRequest
    * @throws \RuntimeException
    * @throws \InvalidArgumentException
    */
-  public function __invoke(): ResponseInterface
+  public function __invoke(ServerRequest $request): ResponseInterface
   {
     return $this->response;
   }
